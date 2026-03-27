@@ -1,0 +1,10 @@
+services:
+  ros2_dev:
+    build: .
+    container_name: ros2_speech_action
+    platform: linux/amd64
+    tty: true
+    stdin_open: true
+    working_dir: /root/ros2_ws
+    volumes:
+      - ./workspace:/root/ros2_ws
