@@ -1,0 +1,6 @@
+SpeechRecognition
+openai-whisper
+gTTS
+pydub
+sounddevice
+numpy
