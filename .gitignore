@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python venv
+venv/
+.env/
+
+# ROS2 build files
+build/
+install/
+log/
+workspace/build/
+workspace/install/
+workspace/log/
+
+# colcon
+*.log
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Docker
+*.tar
+
+# pytest
+.pytest_cache/
+
+# coverage
+.coverage
+htmlcov/
