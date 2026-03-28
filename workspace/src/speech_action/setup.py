@@ -16,7 +16,6 @@ setup(
     maintainer_email="you@example.com",
     description="Speech recognition and synthesis actions for ROS 2",
     license="Apache-2.0",
-    tests_require=["pytest"],
     entry_points={
         "console_scripts": [
             "speech_recognition_server = speech_action.speech_recognition_server:main",

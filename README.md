@@ -57,6 +57,26 @@ docker compose up -d --build
 docker compose exec ros2_dev bash -lc "source /opt/ros/humble/setup.bash && cd /root/ros2_ws && colcon build --symlink-install"
 ```
 
+### ビルドで `error: option --editable not recognized` が出る場合
+
+コンテナ内の `pip` が `torch` などと一緒に **setuptools を新しすぎる版へ上げる**と、`colcon build --symlink-install`（editable インストール）が壊れることがあります。
+
+対処:
+
+1. イメージを作り直す（`Dockerfile` で setuptools を Jammy 相当に固定済み）
+
+```bash
+docker compose build --no-cache
+docker compose up -d
+docker compose exec ros2_dev bash -lc "source /opt/ros/humble/setup.bash && cd /root/ros2_ws && colcon build --symlink-install"
+```
+
+2. それでもダメなら、**symlink なし**でビルド（開発時の差分反映は `colcon build` の再実行で代替）
+
+```bash
+docker compose exec ros2_dev bash -lc "source /opt/ros/humble/setup.bash && cd /root/ros2_ws && colcon build"
+```
+
 ---
 
 ## 音声認識の単体テスト手順
